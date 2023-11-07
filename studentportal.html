@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="Item" placeholder="Input Your Name...">
+    <button onclick="addItems()">Add Items</button>
+    <button onclick="addItem()">Add Items2</button>
+    <button onclick="deleteLastItems()">Delete Last Items</button>
+    <button onclick="deleteFirstItem()">Delete First Item</button>
+    <button onclick="deleteSpecificItem()">Delete Specific items</button>
+    <button onclick="joint()">To Join</button>
+    <button onclick="adding()">Concat Good</button>
+    <div id="show"></div>
+    <script>
+        var cart = [];
+
+        function addItems(){
+            if(!(Item.value == "")){
+                cart.push(Item.value)
+                console.log(cart)
+                Item.value = ""
+                display();
+            }
+            else{
+                alert("Input Invalid")
+            }
+        }
+        function deleteLastItems() {
+            cart.pop();
+            display();
+        } 
+        function deleteFirstItem() {
+            cart.shift();
+            display();
+        }
+        function addItem(){
+            if(Item.value == ""){
+                alert("Input Invalid")
+            }
+            else{
+                cart.unshift(Item.value);
+                display();
+                console.log(cart)
+                Item.value = ""
+            }
+        }
+        function deleteSpecificItem(){
+            var indexItem = Number(prompt("Enter Specific to be deleted"));
+            var itemToDelete = Number(prompt("Enter number of item to be deleted"));
+            cart.splice(indexItem -1, itemToDelete)
+            display();
+        }
+        function joint(){
+            cart.join("*");
+            display();
+        }
+        function adding() {
+            var Add = prompt("Concat..");
+            cart.concat(Add);
+            display();
+        }
+        function display() {
+            show. innerHTML = ""
+            for(i = 0; i < cart.length; i++){
+                show.innerHTML += `<h1>${i+1}. ${cart[i]}</h1>`
+            }
+        }
+    </script>
+</body>
+</html>

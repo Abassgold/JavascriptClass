@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="items">
+    <button onclick="addItems()">Add Item</button>
+    <button onclick="deleteFirstItem()">deleteFirstItem</button>
+    <button onclick="deleteLastItem() ">Delete Last Item</button>
+    <button onclick="deleteSpecificItem()">deleteSpecificItem</button>
+    <button>Edit Item</button>
+    <div id="show"></div>
+    <script>
+        var cart = [];
+
+        function addItems() {
+            if (items.value != "") {
+                cart.push(items.value);
+                console.log(items.value);
+                items.value = "";
+                displayItems() 
+            }
+            else{
+                alert("Fill in empty space")
+            }
+        } 
+
+        function deleteLastItem() {
+            cart.pop()
+            displayItems()
+        }
+         function deleteFirstItem() {
+            cart.shift()
+            displayItems()
+        }
+
+        function deleteSpecificItem() {
+            var startingIndex = Number(prompt("Enter starting position"));
+            var numberOfItems = Number(prompt("Enter the number of items to delete"));
+            cart.splice(startingIndex -1, numberOfItems)
+            console.log(cart)
+            displayItems()
+        }
+
+
+        function displayItems() {
+            show.innerHTML = ""
+            for(i = 0; i< cart.length; i++){
+           show.innerHTML += `<h1>${i+1}. ${cart[i]}`
+        }
+        // or we can use .Map
+        //  cart.map((food, index)=>{
+        //    show.innerHTML += `<h1>${index+1}. ${food}</h1>`
+        // })
+        }
+    </script>
+</body>
+</html>`                                                                                                                                                                                                                

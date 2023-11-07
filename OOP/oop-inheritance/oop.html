@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student {
+            constructor(name, id, department, phone){
+                this.name = name;
+                this.id = id;
+                this.department = department;
+                this.phone = phone;
+            }
+        }
+
+        class Nstudent extends Student{
+            constructor(name, id, department, phone, deployment, matric){
+                super(name,id,department,phone)
+                this.matric = matric;
+                this.deployment = deployment
+            }
+        }
+        let Hikmah = new Student("Hikmah", 2000, "software engineering", 1233564)
+        let miracle = new Nstudent("Miracle", 30000, "software engineering", 9387276, "Lautech", "August 2022")
+        console.log(miracle)
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="show">< /div>
+    <script>
+        var studentName = "David";
+        var studentName2 = "Dpo Javascript";
+        var studentName3 = "Roheemat";
+   
+        var studentArray = ["David", "Dpo Javascript", "Roheemat"];
+       // console.log(studentArray.length);
+
+       var cart = ["Banana", "Shoe", ""]
+       cart.push("Wrsitwatch")
+
+       var cart = []
+       function displayItem() {
+        for(i=0; i<=cart.length; i++){
+            show.innerHTML += `<h1>${cart[i]}</h1>`
+            break;
+        }
+       }
+       function addItem() {
+        // console.log(items.value);
+        cart.push(items.value)
+        items.value = ""
+        displayItem()
+       // console.log(cart);
+       }
+       function deleteItem() {
+        cart.pop()
+        console.log(cart);
+       }
+    </script>
+</body>
+</html> 

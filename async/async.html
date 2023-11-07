@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getInfo()">Check</button>
+    <div id="load"></div>
+    <div id="show"></div>
+    <script>
+  //      setTimeout(()=>{
+  //          console.log("i am happy 1")
+  //      },3000)
+  //      console.log("i am happy 2");
+  //      console.log("i am happy 3");
+  //      console.log("i am happy 4");
+
+        let endPoint = "https://jsonplaceholder.typicode.com/users"
+
+        const getInfo = async () => {
+            load.innerHTML = `
+            <h1>Loading ...</h1>
+            `
+            let response = await fetch(endPoint);
+            console.log(response);
+            let convertResponse = await response.json();
+            console.log(convertResponse);
+            load.innerHTML = ''
+            convertResponse.map(function(user, index){
+ // Note : user is what we used to represent the object names while index is the array index                
+                document.getElementById("show").innerHTML +=`
+                <small>${index} <br></small>
+                <small>${user} <br></small>
+                <small>${user.id} <br></small>
+                <div>${user.name} <br></div>
+                `
+            })
+        }
+    </script>
+</body>
+</html>
